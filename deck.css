@@ -1,0 +1,186 @@
+/* Os povos das Américas e as conquistas — estilos compartilhados
+   Cores: marrom #2A1D14, areia #F6EEDF / #EADCC4, argila #A8431F, jade #17695C
+   Escala de texto: 144 / 80 / 44 / 32 / 26 */
+
+body {
+  font-family: 'Public Sans', Arial, sans-serif;
+  font-size: 32px;
+  color: #2A1D14;
+}
+
+section {
+  background: #F6EEDF;
+  color: #2A1D14;
+  padding: 128px 128px 160px;
+  counter-increment: page;
+}
+section::after {
+  content: counter(page);
+  position: absolute;
+  right: 128px;
+  bottom: 64px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #5A4636;
+}
+section.dark { background: #2A1D14; color: #F6EEDF; }
+section.dark::after { color: #D9C9B0; }
+section.clay { background: #A8431F; color: #F6EEDF; }
+section.clay::after { color: #F6EEDF; }
+section.cover::after { content: ""; }
+
+/* Títulos */
+h1, h2, h3 { font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif; }
+h1 { font-size: 144px; font-weight: 600; line-height: 1; }
+h2 { font-size: 80px; font-weight: 600; line-height: 1.05; margin-top: 32px; }
+h3 { font-size: 44px; font-weight: 600; line-height: 1.1; }
+
+/* Etiqueta de quem fala */
+.tag { display: flex; }
+.who {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 10px 28px;
+  border-radius: 40px;
+  background: #A8431F;
+  color: #F6EEDF;
+}
+section.jade .who { background: #17695C; }
+section.dark .who { background: #A8431F; }
+section.clay .who { background: #2A1D14; }
+.who.jade { background: #17695C; }
+section.dark .who.jade { background: #17695C; }
+
+/* Texto de apoio */
+.txt { font-size: 32px; line-height: 1.3; color: #5A4636; margin-top: 8px; }
+.cap { font-size: 32px; line-height: 1.3; color: #5A4636; margin-top: 16px; }
+.sub { font-size: 32px; line-height: 1.3; color: #D9C9B0; margin-top: 32px; }
+
+/* Cartões em linha */
+.cards { display: flex; gap: 32px; margin-top: 64px; }
+.card { flex: 1; background: #EADCC4; border-radius: 24px; padding: 40px; }
+.card h3 { margin-top: 24px; }
+.card, .item, .stop { color: #2A1D14; }
+section.clay .card { color: #F6EEDF; }
+section.clay .ico { color: #E8A27F; }
+.item h3 { font-size: 44px; }
+.ico { width: 64px; height: 64px; color: #A8431F; flex: none; }
+section.jade .ico { color: #17695C; }
+section.clay .card { background: #2A1D14; }
+section.clay .card .txt { color: #D9C9B0; }
+
+/* Número grande + lista */
+.split { display: flex; gap: 96px; align-items: center; margin-top: 64px; }
+.numcol { width: 760px; }
+.big {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 144px;
+  font-weight: 600;
+  line-height: 1;
+  color: #A8431F;
+}
+section.jade .big { color: #17695C; }
+.stack { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.item {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: #EADCC4;
+  border-radius: 24px;
+  padding: 20px 32px;
+}
+.item .t { flex: 1; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 64px; }
+
+/* Número dentro do cartão */
+.stat {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1;
+  color: #A8431F;
+}
+section.jade .stat { color: #17695C; }
+
+/* Faixa de destaque */
+.banner {
+  margin-top: 32px;
+  background: #2A1D14;
+  color: #F6EEDF;
+  border-radius: 24px;
+  padding: 28px 40px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* Linha do tempo */
+.tl { display: grid; align-items: stretch; margin-top: 80px; }
+.tl3 { grid-template-columns: 1fr 64px 1fr 64px 1fr; }
+.tl4 { grid-template-columns: 1fr 64px 1fr 64px 1fr 64px 1fr; }
+.ar { width: 64px; height: 32px; background: #A8431F; align-self: center; }
+.stop { background: #EADCC4; border-radius: 24px; padding: 36px; }
+.year {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1;
+  color: #A8431F;
+}
+.stop .txt { margin-top: 12px; }
+.stop.hot { background: #A8431F; }
+.stop.hot .year { color: #F6EEDF; }
+.stop.hot .txt { color: #F6EEDF; }
+
+/* Tabela */
+table {
+  width: 100%;
+  margin-top: 64px;
+  font-family: 'Public Sans', Arial, sans-serif;
+  font-size: 44px;
+  color: #2A1D14;
+}
+th, td { padding: 24px 32px; text-align: left; }
+th { color: #F6EEDF; }
+.h { background: #17695C; }
+.b { background: #EADCC4; }
+.c1 { width: 22%; }
+.c2 { width: 39%; }
+.c3 { width: 39%; }
+
+/* Lista de fontes */
+ul { font-size: 32px; line-height: 1.3; color: #5A4636; margin-top: 48px; }
+li { margin-bottom: 16px; }
+
+/* Capa e encerramento */
+.names { display: flex; gap: 16px; margin-top: 56px; }
+.cover h1 { width: 1100px; margin-top: 40px; }
+.pyramid {
+  position: absolute;
+  right: 128px;
+  bottom: 160px;
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.st { height: 56px; border-radius: 8px; }
+.w1 { width: 112px; background: #E8A27F; }
+.w2 { width: 224px; background: #A8431F; }
+.w3 { width: 336px; background: #17695C; }
+.w4 { width: 448px; background: #A8431F; }
+.w5 { width: 560px; background: #17695C; }
+
+/* Movimento na capa (estado final = regra normal) */
+@keyframes rise { from { opacity: 0; transform: translateY(40px); } }
+.rise { animation: rise 600ms ease both; }
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 80ms; }
+.d2 { animation-delay: 160ms; }
+.d3 { animation-delay: 240ms; }
+.d4 { animation-delay: 320ms; }
+
+/* Revelação por clique (progressão) */
+.fragment { opacity: 0; transition: opacity 500ms ease; }
+.fragment.visible { opacity: 1; }

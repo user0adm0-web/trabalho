@@ -1,0 +1,47 @@
+{
+  "v": 5,
+  "createdOnFiles": { "v": 1, "at": "2026-11-20T13:40:00Z" },
+  "lists": "css",
+  "format": { "v": 1, "shared": ["project/deck.css"] },
+  "title": "Os povos das Américas e as conquistas",
+  "order": [
+    "cover",
+    "roteiro",
+    "antes-1492",
+    "linha-tempo-1",
+    "brasil-1500",
+    "maias",
+    "astecas",
+    "incas",
+    "comparacao",
+    "linha-tempo-2",
+    "cortes",
+    "pizarro",
+    "porque-venceram",
+    "queda-populacao",
+    "trabalho-forcado",
+    "legado",
+    "conclusao",
+    "perguntas",
+    "fontes"
+  ],
+  "sections": {
+    "abertura": { "description": "Dhavi abre o seminário e apresenta a divisão do grupo.", "start": "cover" },
+    "parte1": { "description": "Pedro: a América antes de 1492, o Brasil em 1500 e os Maias.", "start": "antes-1492" },
+    "parte2": { "description": "Dhavi: Astecas, Incas e a comparação entre os três povos.", "start": "astecas" },
+    "parte3": { "description": "Matheus: Colombo, Cortés, Pizarro e por que os espanhóis venceram.", "start": "linha-tempo-2" },
+    "parte4": { "description": "Cleiton: queda da população, trabalho forçado, legado e conclusão.", "start": "queda-populacao" },
+    "fim": { "description": "Dhavi encerra com as perguntas e a lista de fontes.", "start": "perguntas" }
+  },
+  "faces": {
+    "oswald": {
+      "family": "Oswald",
+      "href": "https://fonts.googleapis.com/css2?family=Oswald:wght@400..700&display=swap"
+    },
+    "public-sans": {
+      "family": "Public Sans",
+      "href": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap"
+    }
+  },
+  "designSystems": []
+}

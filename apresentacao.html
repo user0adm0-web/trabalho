@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Os povos das Américas e as conquistas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Os povos das Américas e as conquistas — estilos compartilhados
+   Cores: marrom #2A1D14, areia #F6EEDF / #EADCC4, argila #A8431F, jade #17695C
+   Escala de texto: 144 / 80 / 44 / 32 / 26 */
+
+body {
+  font-family: 'Public Sans', Arial, sans-serif;
+  font-size: 32px;
+  color: #2A1D14;
+}
+
+section {
+  background: #F6EEDF;
+  color: #2A1D14;
+  padding: 128px 128px 160px;
+  counter-increment: page;
+}
+section::after {
+  content: counter(page);
+  position: absolute;
+  right: 128px;
+  bottom: 64px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #5A4636;
+}
+section.dark { background: #2A1D14; color: #F6EEDF; }
+section.dark::after { color: #D9C9B0; }
+section.clay { background: #A8431F; color: #F6EEDF; }
+section.clay::after { color: #F6EEDF; }
+section.cover::after { content: ""; }
+
+/* Títulos */
+h1, h2, h3 { font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif; }
+h1 { font-size: 144px; font-weight: 600; line-height: 1; }
+h2 { font-size: 80px; font-weight: 600; line-height: 1.05; margin-top: 32px; }
+h3 { font-size: 44px; font-weight: 600; line-height: 1.1; }
+
+/* Etiqueta de quem fala */
+.tag { display: flex; }
+.who {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 10px 28px;
+  border-radius: 40px;
+  background: #A8431F;
+  color: #F6EEDF;
+}
+section.jade .who { background: #17695C; }
+section.dark .who { background: #A8431F; }
+section.clay .who { background: #2A1D14; }
+.who.jade { background: #17695C; }
+section.dark .who.jade { background: #17695C; }
+
+/* Texto de apoio */
+.txt { font-size: 32px; line-height: 1.3; color: #5A4636; margin-top: 8px; }
+.cap { font-size: 32px; line-height: 1.3; color: #5A4636; margin-top: 16px; }
+.sub { font-size: 32px; line-height: 1.3; color: #D9C9B0; margin-top: 32px; }
+
+/* Cartões em linha */
+.cards { display: flex; gap: 32px; margin-top: 64px; }
+.card { flex: 1; background: #EADCC4; border-radius: 24px; padding: 40px; }
+.card h3 { margin-top: 24px; }
+.card, .item, .stop { color: #2A1D14; }
+section.clay .card { color: #F6EEDF; }
+section.clay .ico { color: #E8A27F; }
+.item h3 { font-size: 44px; }
+.ico { width: 64px; height: 64px; color: #A8431F; flex: none; }
+section.jade .ico { color: #17695C; }
+section.clay .card { background: #2A1D14; }
+section.clay .card .txt { color: #D9C9B0; }
+
+/* Número grande + lista */
+.split { display: flex; gap: 96px; align-items: center; margin-top: 64px; }
+.numcol { width: 760px; }
+.big {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 144px;
+  font-weight: 600;
+  line-height: 1;
+  color: #A8431F;
+}
+section.jade .big { color: #17695C; }
+.stack { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.item {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: #EADCC4;
+  border-radius: 24px;
+  padding: 20px 32px;
+}
+.item .t { flex: 1; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 64px; }
+
+/* Número dentro do cartão */
+.stat {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1;
+  color: #A8431F;
+}
+section.jade .stat { color: #17695C; }
+
+/* Faixa de destaque */
+.banner {
+  margin-top: 32px;
+  background: #2A1D14;
+  color: #F6EEDF;
+  border-radius: 24px;
+  padding: 28px 40px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* Linha do tempo */
+.tl { display: grid; align-items: stretch; margin-top: 80px; }
+.tl3 { grid-template-columns: 1fr 64px 1fr 64px 1fr; }
+.tl4 { grid-template-columns: 1fr 64px 1fr 64px 1fr 64px 1fr; }
+.ar { width: 64px; height: 32px; background: #A8431F; align-self: center; }
+.stop { background: #EADCC4; border-radius: 24px; padding: 36px; }
+.year {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1;
+  color: #A8431F;
+}
+.stop .txt { margin-top: 12px; }
+.stop.hot { background: #A8431F; }
+.stop.hot .year { color: #F6EEDF; }
+.stop.hot .txt { color: #F6EEDF; }
+
+/* Tabela */
+table {
+  width: 100%;
+  margin-top: 64px;
+  font-family: 'Public Sans', Arial, sans-serif;
+  font-size: 44px;
+  color: #2A1D14;
+}
+th, td { padding: 24px 32px; text-align: left; }
+th { color: #F6EEDF; }
+.h { background: #17695C; }
+.b { background: #EADCC4; }
+.c1 { width: 22%; }
+.c2 { width: 39%; }
+.c3 { width: 39%; }
+
+/* Lista de fontes */
+ul { font-size: 32px; line-height: 1.3; color: #5A4636; margin-top: 48px; }
+li { margin-bottom: 16px; }
+
+/* Capa e encerramento */
+.names { display: flex; gap: 16px; margin-top: 56px; }
+.cover h1 { width: 1100px; margin-top: 40px; }
+.pyramid {
+  position: absolute;
+  right: 128px;
+  bottom: 160px;
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.st { height: 56px; border-radius: 8px; }
+.w1 { width: 112px; background: #E8A27F; }
+.w2 { width: 224px; background: #A8431F; }
+.w3 { width: 336px; background: #17695C; }
+.w4 { width: 448px; background: #A8431F; }
+.w5 { width: 560px; background: #17695C; }
+
+/* Movimento na capa (estado final = regra normal) */
+@keyframes rise { from { opacity: 0; transform: translateY(40px); } }
+.rise { animation: rise 600ms ease both; }
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 80ms; }
+.d2 { animation-delay: 160ms; }
+.d3 { animation-delay: 240ms; }
+.d4 { animation-delay: 320ms; }
+
+/* Revelação por clique (progressão) */
+.fragment { opacity: 0; transition: opacity 500ms ease; }
+.fragment.visible { opacity: 1; }
+
+
+/* ===== Runtime overrides for standalone ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #1a120c;
+}
+
+#deck {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+section {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(40px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  overflow: auto;
+}
+
+section.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+section.prev {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+/* Icons */
+.ico {
+  width: 64px;
+  height: 64px;
+  color: #A8431F;
+  flex: none;
+  display: inline-flex;
+}
+.ico svg {
+  width: 100%;
+  height: 100%;
+}
+section.jade .ico { color: #17695C; }
+section.clay .card .ico { color: #E8A27F; }
+
+/* Speaker notes panel */
+#notes {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 28vh;
+  background: rgba(26, 18, 12, 0.94);
+  color: #F6EEDF;
+  padding: 16px 32px 20px;
+  font-size: 18px;
+  line-height: 1.4;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 50;
+  border-top: 2px solid #A8431F;
+  overflow-y: auto;
+}
+#notes.open { transform: translateY(0); }
+#notes .label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #E8A27F;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* Progress bar */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: #A8431F;
+  z-index: 100;
+  transition: width 0.35s ease;
+}
+
+/* Controls hint */
+#hint {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(42, 29, 20, 0.85);
+  color: #D9C9B0;
+  font-size: 13px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  z-index: 40;
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+#hint.fade { opacity: 0; }
+
+/* Slide counter */
+#counter {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #5A4636;
+  z-index: 40;
+  background: rgba(246, 238, 223, 0.9);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+section.dark ~ #counter,
+body.dark-slide #counter {
+  background: rgba(42, 29, 20, 0.85);
+  color: #D9C9B0;
+}
+
+/* Hide original asides from visual flow */
+aside {
+  display: none;
+}
+
+/* Fragment animation already in CSS */
+.fragment {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.fragment.visible {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="counter">1 / 19</div>
+<div id="deck">
+<section id="cover" class="dark cover" data-transition="fade">
+<div class="tag"><p class="who">HISTÓRIA · SEMINÁRIO</p></div>
+<h1 class="rise d1">Os povos das Américas e as conquistas</h1>
+<p class="sub">Quem eram, como foram conquistados e o que mudou</p>
+<div class="names rise d3"><p class="who">PEDRO</p><p class="who jade">Dhavi</p><p class="who">MATHEUS</p><p class="who jade">CLEITON</p></div>
+<div class="pyramid">
+<div class="st w1 rise d4"></div>
+<div class="st w2 rise d3"></div>
+<div class="st w3 rise d2"></div>
+<div class="st w4 rise d1"></div>
+<div class="st w5 rise d0"></div>
+</div>
+<aside>Dhavi (líder): cumprimente a turma e diga o tema: os povos das Américas e as conquistas. Explique em uma frase o plano: primeiro quem eram esses povos, depois como foram conquistados e, por fim, o que mudou. Apresente os colegas e passe para o próximo slide.</aside>
+</section>
+
+<section id="roteiro" data-transition="fade">
+<div class="tag"><p class="who jade">Dhavi</p></div>
+<h2>Roteiro do seminário</h2>
+<div class="cards">
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Pedro</h3><p class="txt">A América antes de 1492 e os Maias</p></div>
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><h3>Dhavi</h3><p class="txt">Astecas, Incas e comparação</p></div>
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><h3>Matheus</h3><p class="txt">As conquistas: Cortés e Pizarro</p></div>
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><h3>Cleiton</h3><p class="txt">Consequências e legado</p></div>
+</div>
+<aside>Dhavi: apresente a ordem. Cada clique mostra uma pessoa. Diga: "Vamos do passado para o presente: quem eram, como foram conquistados e o que ficou." Passe a palavra ao Pedro.</aside>
+</section>
+
+<section id="antes-1492" data-transition="fade">
+<div class="tag"><p class="who">PEDRO</p></div>
+<h2>A América antes de 1492</h2>
+<div class="split">
+<div class="numcol"><p class="big">50 mi</p><p class="txt">de pessoas, segundo uma estimativa. Os historiadores ainda discutem o número.</p></div>
+<div class="stack">
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><p class="t">Milhares de povos diferentes</p></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><p class="t">Cada um com sua língua e cultura</p></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><p class="t">De aldeias a grandes impérios</p></div>
+</div>
+</div>
+<aside>PEDRO: "pré-colombiano" quer dizer "antes de Colombo" (1492). Não era um continente vazio: havia milhares de grupos. Uns caçavam e coletavam, outros plantavam e viviam em cidades. Três se destacam: Maias, Astecas e Incas. Depois falamos do Brasil.</aside>
+</section>
+
+<section id="linha-tempo-1" class="dark" data-transition="fade">
+<div class="tag"><p class="who">PEDRO</p></div>
+<h2>Três grandes povos</h2>
+<div class="tl tl3">
+<div class="stop"><h3>Maias</h3><p class="year">Primeiro</p><p class="txt">Os mais antigos dos três</p></div>
+<div class="ar"></div>
+<div class="stop"><h3>Astecas</h3><p class="year">1325</p><p class="txt">Fundação de Tenochtitlán</p></div>
+<div class="ar"></div>
+<div class="stop"><h3>Incas</h3><p class="year">Séc. XV</p><p class="txt">O império se expande pelos Andes</p></div>
+</div>
+<aside>PEDRO: mostre a ordem no tempo. Os Maias vieram primeiro. Os Astecas fundaram Tenochtitlán em 1325. Os Incas cresceram até virar o maior império da América. Todos ainda existiam quando os europeus chegaram, exceto as grandes cidades maias clássicas, que já tinham declinado.</aside>
+</section>
+
+<section id="brasil-1500" class="jade" data-transition="fade">
+<div class="tag"><p class="who">PEDRO</p></div>
+<h2>O Brasil em 1500</h2>
+<div class="split">
+<div class="numcol"><p class="big">3 mi</p><p class="txt">de indígenas, segundo estimativas. Por isso se diz "pré-cabralino".</p></div>
+<div class="stack">
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><p class="t">Tupis: quase toda a costa</p></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><p class="t">Tapuias: principalmente o interior</p></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><p class="t">Cerca de 1.200 línguas</p></div>
+</div>
+</div>
+<aside>PEDRO: no Brasil não havia impérios como o Inca, mas havia muita gente e muita diversidade. Tupi era o grande grupo da costa. "Tapuia" era o nome dado a quem não era Tupi, em geral no interior. Fale rápido: o foco do seminário é a América espanhola.</aside>
+</section>
+
+<section id="maias" data-transition="fade">
+<div class="tag"><p class="who">PEDRO</p></div>
+<h2>Maias</h2>
+<div class="cards">
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Onde</h3><p class="txt">Sul do México e América Central</p></div>
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><h3>Cidades</h3><p class="txt">Cidades-estado, sem um único imperador</p></div>
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><h3>Saberes</h3><p class="txt">Escrita hieroglífica e calendário</p></div>
+</div>
+<p class="banner">Os mais antigos dos três povos</p>
+<aside>PEDRO: os Maias não eram um único povo, eram vários povos com a mesma origem cultural e língua parecida. Cada cidade-estado tinha seu governante. Ficaram famosos pela escrita em hieróglifos e pelos calendários. Passe para o Dhavi.</aside>
+</section>
+
+<section id="astecas" class="jade" data-transition="fade">
+<div class="tag"><p class="who jade">Dhavi</p></div>
+<h2>Astecas (Mexicas)</h2>
+<div class="cards">
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><h3>Capital</h3><p class="txt">Tenochtitlán, hoje Cidade do México</p></div>
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Poder</h3><p class="txt">Cobravam tributos dos povos dominados</p></div>
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Lago</h3><p class="txt">Cidade construída sobre um lago</p></div>
+</div>
+<p class="banner">Tenochtitlán era a maior cidade das Américas</p>
+<aside>Dhavi: os Astecas também se chamavam Mexicas. Dominavam o centro do México e cobravam tributos de várias cidades. Isso é importante: muitos povos dominados odiavam os Astecas, e isso vai pesar na conquista. Cuidado para não ler o slide: fale com suas palavras.</aside>
+</section>
+
+<section id="incas" class="jade" data-transition="fade">
+<div class="tag"><p class="who jade">Dhavi</p></div>
+<h2>Incas</h2>
+<div class="cards">
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Estradas</h3><p class="txt">Estradas e armazéns ligavam o império</p></div>
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Quipus</h3><p class="txt">Cordas com nós para registrar contas</p></div>
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Mita</h3><p class="txt">Trabalho coletivo a serviço do Estado</p></div>
+</div>
+<p class="banner">Tahuantinsuyo: o maior império da América, com capital em Cusco</p>
+<aside>Dhavi: os Incas eram centralizados em torno do imperador (o Sapa Inca). Sem escrita como a nossa, usavam quipus, cordas com nós, para guardar números e informações. A mita era um sistema de trabalho obrigatório por turnos. Guarde o nome "mita": ele volta na parte do Cleiton.</aside>
+</section>
+
+<section id="comparacao" data-transition="fade">
+<div class="tag"><p class="who jade">Dhavi</p></div>
+<h2>Maias, Astecas e Incas</h2>
+<table>
+<tr class="h"><th class="c1">Povo</th><th class="c2">Onde</th><th class="c3">Marca</th></tr>
+<tr class="b"><td>Maias</td><td>Sul do México e América Central</td><td>Escrita e calendário</td></tr>
+<tr><td>Astecas</td><td>Centro do México</td><td>Tributos e Tenochtitlán</td></tr>
+<tr class="b"><td>Incas</td><td>Andes, na América do Sul</td><td>Estradas e quipus</td></tr>
+</table>
+<aside>Dhavi: resumo rápido para a turma guardar. Maias: cidades-estado e escrita. Astecas: tributos e uma capital no lago. Incas: império centralizado com estradas. Agora o Matheus conta como essas civilizações foram conquistadas.</aside>
+</section>
+
+<section id="linha-tempo-2" class="dark" data-transition="fade">
+<div class="tag"><p class="who">MATHEUS</p></div>
+<h2>As conquistas no tempo</h2>
+<div class="tl tl4">
+<div class="stop"><p class="year">1492</p><p class="txt">Colombo chega à América</p></div>
+<div class="ar"></div>
+<div class="stop"><p class="year">1519</p><p class="txt">Cortés chega ao México</p></div>
+<div class="ar"></div>
+<div class="stop hot"><p class="year">1521</p><p class="txt">Cai Tenochtitlán</p></div>
+<div class="ar"></div>
+<div class="stop hot"><p class="year">1532</p><p class="txt">Pizarro captura Atahualpa</p></div>
+</div>
+<aside>MATHEUS: quatro datas para a turma anotar. 1492: Colombo. 1519: Cortés desembarca no México. 1521: cai a capital asteca. 1532: Pizarro captura o imperador inca em Cajamarca. Em menos de 40 anos, os dois maiores impérios caíram.</aside>
+</section>
+
+<section id="cortes" data-transition="fade">
+<div class="tag"><p class="who">MATHEUS</p></div>
+<h2>Cortés e os Astecas</h2>
+<div class="split">
+<div class="numcol"><p class="big">500</p><p class="txt">soldados espanhóis chegaram em 1519, com 11 navios.</p></div>
+<div class="stack">
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><p class="t">Aliados indígenas, como os Tlaxcala</p></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><p class="t">La Malinche, intérprete de Cortés</p></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><p class="t">Cerco final: 13 de agosto de 1521</p></div>
+</div>
+</div>
+<aside>MATHEUS: Cortés saiu de Cuba com cerca de 500 homens. Não venceu sozinho: milhares de guerreiros de povos inimigos dos Astecas, como os Tlaxcala, lutaram ao lado dele. La Malinche foi a intérprete e conselheira. O imperador Moctezuma morreu durante a crise. Depois de um cerco, Tenochtitlán caiu em 13 de agosto de 1521.</aside>
+</section>
+
+<section id="pizarro" class="jade" data-transition="fade">
+<div class="tag"><p class="who">MATHEUS</p></div>
+<h2>Pizarro e os Incas</h2>
+<div class="split">
+<div class="numcol"><p class="big">168</p><p class="txt">espanhóis capturaram o imperador Atahualpa em Cajamarca, em 1532.</p></div>
+<div class="stack">
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><p class="t">Guerra civil entre dois irmãos</p></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><p class="t">Imperador preso na emboscada</p></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><p class="t">Resgate: uma sala de ouro e prata</p></div>
+</div>
+</div>
+<aside>MATHEUS: antes de Pizarro chegar, os filhos do imperador anterior, Huáscar e Atahualpa, brigavam pelo trono. Atahualpa tinha acabado de vencer. Em Cajamarca, os espanhóis fizeram uma emboscada e o capturaram. Ele ofereceu encher uma sala de ouro e outra de prata pela liberdade, mas foi executado em 1533.</aside>
+</section>
+
+<section id="porque-venceram" class="clay" data-transition="fade">
+<div class="tag"><p class="who">MATHEUS</p></div>
+<h2>Por que os espanhóis venceram</h2>
+<div class="cards">
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Doenças</h3><p class="txt">Varíola e outras</p></div>
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Aliados</h3><p class="txt">Povos inimigos dos impérios</p></div>
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><h3>Divisões</h3><p class="txt">Guerra civil entre os Incas</p></div>
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Armas</h3><p class="txt">Canhões, aço e cavalos</p></div>
+</div>
+<aside>MATHEUS: esta é a pergunta mais importante da parte das conquistas. Clique para mostrar um motivo por vez. Resposta: não foi só força militar. Doenças europeias mataram muita gente. Aliados indígenas foram decisivos. Os Incas estavam em guerra civil. E os espanhóis tinham armas e cavalos que os povos da América não conheciam. Passe para o Cleiton.</aside>
+</section>
+
+<section id="queda-populacao" data-transition="fade">
+<div class="tag"><p class="who jade">CLEITON</p></div>
+<h2>A queda da população</h2>
+<div class="split">
+<div class="numcol"><p class="big">até 90%</p><p class="txt">de queda em várias regiões, segundo historiadores.</p></div>
+<div class="stack">
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><p class="t">Doenças: a maior causa</p></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><p class="t">Guerra e violência</p></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><p class="t">Fome e trabalho forçado</p></div>
+</div>
+</div>
+<aside>CLEITON: os europeus trouxeram varíola, tifo e gripe, e os povos da América não tinham defesa contra elas. Houve também guerras, fome e exploração. Em várias regiões a população caiu muito, até 90% ou mais, com diferenças de lugar para lugar. No Brasil, estima-se cerca de 3 milhões de indígenas em 1500 e cerca de 900 mil no Censo de 2010.</aside>
+</section>
+
+<section id="trabalho-forcado" class="jade" data-transition="fade">
+<div class="tag"><p class="who jade">CLEITON</p></div>
+<h2>Trabalho forçado</h2>
+<div class="cards">
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Encomienda</h3><p class="txt">Colonos recebiam grupos de indígenas para trabalhar</p></div>
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Mita</h3><p class="txt">Os espanhóis aproveitaram o sistema inca</p></div>
+<div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><h3>Potosí</h3><p class="txt">Mina de prata na Bolívia atual: até metade da prata do mundo</p></div>
+</div>
+<p class="banner">Las Casas denunciou os abusos; as Leis Novas (1542) foram pouco cumpridas</p>
+<aside>CLEITON: encomienda era o direito de usar o trabalho de um grupo de indígenas em troca de "proteção" e ensino da fé cristã, na prática uma exploração quase igual à escravidão. A mita inca virou trabalho forçado nas minas, como Potosí, que chegou a produzir cerca de 200 toneladas de prata por ano. O frade Bartolomé de las Casas denunciou isso.</aside>
+</section>
+
+<section id="legado" data-transition="fade">
+<div class="tag"><p class="who jade">CLEITON</p></div>
+<h2>O que ficou</h2>
+<div class="cards">
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><h3>Cidades</h3><p class="txt">A Cidade do México nasceu sobre Tenochtitlán</p></div>
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><h3>Línguas</h3><p class="txt">Quéchua e línguas maias seguem vivas</p></div>
+<div class="card fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Povos</h3><p class="txt">No Brasil, 305 povos indígenas no Censo de 2010</p></div>
+</div>
+<aside>CLEITON: os povos não desapareceram. Muitas ruínas e cidades atuais ficam sobre as antigas. Línguas como o quéchua ainda são faladas. No Brasil, o Censo de 2010 registrou cerca de 305 povos indígenas. Clique para revelar um card por vez.</aside>
+</section>
+
+<section id="conclusao" class="dark" data-transition="fade">
+<div class="tag"><p class="who jade">CLEITON</p></div>
+<h2>Conclusão</h2>
+<div class="stack" style="margin-top:64px">
+<div class="item fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3 class="t">Antes de 1492 já havia povos e culturas diversas</h3></div>
+<div class="item fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><h3 class="t">A conquista foi rápida, e não só por armas</h3></div>
+<div class="item fragment"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><h3 class="t">As consequências duram até hoje</h3></div>
+</div>
+<aside>CLEITON: três ideias para a turma levar. 1) as Américas já eram diversas. 2) a conquista dependeu de doenças, aliados, divisões e armas. 3) os efeitos continuam. Passe para o Dhavi encerrar.</aside>
+</section>
+
+<section id="perguntas" class="clay" data-transition="fade">
+<div class="tag"><p class="who">Dhavi</p></div>
+<h1>Perguntas?</h1>
+<p class="sub">Obrigado! Pedro, Dhavi, Matheus e Cleiton</p>
+<aside>Dhavi: agradeça e abra para perguntas. Se perguntarem por que os espanhóis venceram, volte ao slide "Por que os espanhóis venceram". Se perguntarem sobre o Brasil, volte ao slide "O Brasil em 1500". Cada pessoa responde sobre sua própria parte.</aside>
+</section>
+
+<section id="fontes" data-transition="fade">
+<h2>Fontes consultadas</h2>
+<ul>
+<li>Toda Matéria e Quero Bolsa: povos pré-colombianos</li>
+<li>World History Encyclopedia: Cortés, Pizarro e Atahualpa</li>
+<li>Britannica: queda de Tenochtitlán e batalha de Cajamarca</li>
+<li>McKay et al.: população indígena e trabalho forçado</li>
+<li>Jornal da USP e Revista Pesquisa FAPESP: indígenas no Brasil</li>
+</ul>
+<aside>Slide de referência. Não precisa falar. Mostre só se o professor pedir as fontes.</aside>
+</section>
+</div>
+<div id="notes"><div class="label">NOTAS DO APRESENTADOR</div><div id="notes-body"></div></div>
+<div id="hint">← → ou Espaço · N = notas · F = tela cheia · Esc = sair</div>
+
+<script>
+(function () {
+  const sections = Array.from(document.querySelectorAll('#deck > section'));
+  let current = 0;
+  let notesOpen = false;
+
+  function update() {
+    sections.forEach((s, i) => {
+      s.classList.remove('active', 'prev');
+      if (i === current) s.classList.add('active');
+      else if (i < current) s.classList.add('prev');
+    });
+
+    // Progress
+    const pct = ((current + 1) / sections.length) * 100;
+    document.getElementById('progress').style.width = pct + '%';
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + sections.length;
+
+    // Dark slide detection for counter
+    const active = sections[current];
+    document.body.classList.toggle('dark-slide', active.classList.contains('dark') || active.classList.contains('clay'));
+
+    // Speaker notes
+    const aside = active.querySelector('aside');
+    document.getElementById('notes-body').textContent = aside ? aside.textContent.trim() : '(sem notas)';
+
+    // Reset fragments on slide change
+    active.querySelectorAll('.fragment').forEach(f => f.classList.remove('visible'));
+  }
+
+  function next() {
+    const active = sections[current];
+    const hidden = active.querySelectorAll('.fragment:not(.visible)');
+    if (hidden.length) {
+      hidden[0].classList.add('visible');
+      return;
+    }
+    if (current < sections.length - 1) {
+      current++;
+      update();
+    }
+  }
+
+  function prev() {
+    if (current > 0) {
+      current--;
+      update();
+    }
+  }
+
+  function toggleNotes() {
+    notesOpen = !notesOpen;
+    document.getElementById('notes').classList.toggle('open', notesOpen);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      e.preventDefault();
+      next();
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      prev();
+    } else if (e.key === 'n' || e.key === 'N') {
+      toggleNotes();
+    } else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    } else if (e.key === 'Escape' && notesOpen) {
+      toggleNotes();
+    } else if (e.key === 'Home') {
+      current = 0; update();
+    } else if (e.key === 'End') {
+      current = sections.length - 1; update();
+    }
+  });
+
+  // Click to advance
+  document.getElementById('deck').addEventListener('click', (e) => {
+    if (e.target.closest('a, button')) return;
+    next();
+  });
+
+  // Hide hint after a few seconds
+  setTimeout(() => document.getElementById('hint').classList.add('fade'), 4500);
+
+  update();
+})();
+</script>
+</body>
+</html>
